@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Excuse Forms</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f8f9fa;
+        margin: 0;
+        padding: 20px;
+      }
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        background-color: #ffffff;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      .form-link {
+        display: block;
+        padding: 10px;
+        margin-bottom: 10px;
+        background-color: #f0f0f0;
+        border-radius: 5px;
+        text-decoration: none;
+        color: #333333;
+        cursor: pointer;
+      }
+      .form-link:hover {
+        background-color: #e0e0e0;
+      }
+      .email-form {
+        text-align: center;
+        margin-top: 20px;
+      }
+      .email-form input[type="email"],
+      .email-form input[type="submit"] {
+        padding: 10px;
+        margin-right: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+        background-color: #f8f9fa;
+        color: #333333;
+        cursor: pointer;
+      }
+      .email-form input[type="email"] {
+        width: 300px;
+      }
+      .email-form input[type="submit"] {
+        background-color: #f0f0f0;
+      }
+      .email-form input[type="email"]:focus {
+        outline: none;
+        border-color: #5f9ea0;
+      }
+      .email-form input[type="submit"]:hover {
+        background-color: #e0e0e0;
+      }
+      .form-preview {
+        display: none;
+        margin-top: 10px;
+        text-align: center;
+      }
+      .form-preview img {
+        max-width: 100%;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      .close-btn {
+        position: absolute;
+        padding: 10px;
+        top: 15px;
+        right: 20px;
+        cursor: pointer;
+        font-size: 20px;
+        color: #333;
+        transition: color 0.3s ease;
+      }
+      .close-btn:hover {
+        color: #2e7d32; /* Change color on hover */
+      }
+      /* Define the animation */
+      @keyframes send-email-animation {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.1);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      /* Apply the animation to an element */
+      .send-email-animation {
+        animation: send-email-animation 0.5s ease-out;
+      }
+    </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Excuse Forms</h1>
+    <div class="close-btn" onclick="window.location.href='index.html'">X</div>
+    <!-- Add event listeners to form links -->
+    <a href="#" class="form-link" onclick="showFormPreview('form1')">Form 1</a>
+    <a href="#" class="form-link" onclick="showFormPreview('form2')">Form 2</a>
+    <!-- Add more form links as needed -->
+    <div id="form1Preview" class="form-preview">
+      <img src="icglogo.jpg" alt="Form 1" />
+    </div>
+    <div id="form2Preview" class="form-preview">
+      <img src="form2.jpg" alt="Form 2" />
+    </div>
+    <div class="email-form">
+      <form id="emailForm" method="POST" onsubmit="submitEmailForm(event)">
+        <input
+          type="email"
+          id="userEmail"
+          name="email"
+          placeholder="Your Email"
+          required
+        />
+        <input type="hidden" id="selectedForm" name="selectedForm" />
+        <input type="submit" value="Email Form" id="submitBtn" />
+      </form>
+    </div>
+  </div>
+
+  <!-- Include your JavaScript file -->
+  <script src="formscript.js"></script>
+</body>
+</html>
